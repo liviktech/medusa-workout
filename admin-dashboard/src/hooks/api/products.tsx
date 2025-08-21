@@ -7,9 +7,9 @@ import {
   useQuery,
   UseQueryOptions,
 } from "@tanstack/react-query"
-import { sdk } from "../../lib/client"
-import { queryClient } from "../../lib/query-client"
-import { queryKeysFactory } from "../../lib/query-key-factory"
+import { sdk } from "../../lib/client/index.ts"
+import { queryClient } from "../../lib/query-client.ts"
+import { queryKeysFactory } from "../../lib/query-key-factory.ts"
 import { inventoryItemsQueryKeys } from "./inventory.tsx"
 
 const PRODUCTS_QUERY_KEY = "products" as const
