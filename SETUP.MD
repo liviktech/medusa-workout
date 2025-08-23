@@ -99,6 +99,8 @@ npx medusa user -e ${ADMIN_EMAIL} --invite
 4. Copy the generated publishable key
 5. Update the storefront environment variable:
 
+> Note: Due to seeding, If there is any other publishable keys in the list, that can also be used.
+
 ```env
 NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=your_publishable_key_here
 ```
