@@ -17,8 +17,5 @@ module.exports = defineConfig({
     {
       resolve: "./src/modules/brand",
     }
-  ],
-  admin: {
-    disable: true,
-  }
+  ]
 })
