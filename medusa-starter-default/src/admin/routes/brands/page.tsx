@@ -15,6 +15,11 @@ import { useMemo, useState } from "react"
 type Brand = {
     id: string
     name: string
+    description?: string
+    logo?: string
+    website?: string
+    slug?: string
+    active: boolean
 }
 type BrandsResponse = {
     brands: Brand[]

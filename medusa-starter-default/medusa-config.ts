@@ -20,7 +20,8 @@ module.exports = defineConfig({
     {
       resolve: "./src/modules/cms",
       options: {
-        apiKey: process.env.CMS_API_KEY,
+        apiKey: process.env.STRAPI_API_KEY,
+        baseUrl: process.env.STRAPI_BASE_URL
       },
     },
   ]

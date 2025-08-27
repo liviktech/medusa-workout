@@ -8,6 +8,11 @@ type AdminProductBrand = AdminProduct & {
     brand?: {
         id: string
         name: string
+        description?: string
+        logo?: string
+        website?: string
+        slug?: string
+        active: boolean
     }
 }
 

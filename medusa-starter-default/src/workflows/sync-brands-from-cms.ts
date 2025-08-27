@@ -6,6 +6,11 @@ import { BRAND_MODULE } from "../modules/brand";
 
 type CreateBrand = {
     name: string
+    description?: string
+    logo?: string
+    website?: string
+    slug?: string
+    active?: boolean
 }
 
 type CreateBrandsInput = {
@@ -15,6 +20,11 @@ type CreateBrandsInput = {
 type UpdateBrand = {
     id: string
     name: string
+    description?: string
+    logo?: string
+    website?: string
+    slug?: string
+    active?: boolean
 }
 
 type UpdateBrandsInput = {
