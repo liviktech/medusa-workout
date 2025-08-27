@@ -1,10 +1,10 @@
 import { Router } from "express"
 import cors from "cors"
-import {projectConfig} from "../../medusa-config"
+import { projectConfig } from "../../medusa-config"
 
 export default () => {
   const router = Router()
-  
+
   router.use(cors({
     origin: projectConfig.http.adminCors.split(","),
     credentials: true,
@@ -24,7 +24,7 @@ export default () => {
 
   router.get("/admin/products/count", (req, res) => {
     const productService = req.scope.resolve("productService")
-  
+
     productService.count().then((count) => {
       res.json({
         count,

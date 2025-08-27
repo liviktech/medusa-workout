@@ -55,6 +55,28 @@ Cannot upgrade/modify:
 ### Deployment Guide:
 https://docs.medusajs.com/learn/deployment/general
 
+## TODO List
+
+### Analysis & Research
+- [ ] Analyze the channels feature
+- [ ] Check the difference between the [*need to specify what to compare*]
+- [ ] List already available Medusa features
+- [ ] Research these packages:
+  - [ ] awilix
+  - [ ] opentelemetry
+
+### Architecture & Development
+- [ ] Separate Medusa into microservices
+- [ ] Lookout for good frontend for storefront
+- [ ] Try Docusaurus for documentation
+
+### Integrations
+- [ ] Try integrating these features if possible:
+  - [ ] WhatsApp
+  - [ ] Telegram
+  - [ ] Instagram
+- [ ] Product review module
+
 ## Packages Requiring Research
 - awilix
 - opentelemetry
