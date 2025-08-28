@@ -54,11 +54,9 @@ class CmsModuleService {
             }
 
             const responseData = await response.json()
-            this.logger_.info(`API response: ${JSON.stringify(responseData, null, 2)}`)
             return responseData
 
         } catch (error) {
-            this.logger_.error(`221 error: `, error)
             this.logger_.error(`Request failed: ${error}`)
             throw error
         }

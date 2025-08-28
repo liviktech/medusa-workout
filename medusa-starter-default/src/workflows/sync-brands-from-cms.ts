@@ -3,6 +3,8 @@ import CmsModuleService from "../modules/cms/service";
 import { CMS_MODULE } from "../modules/cms";
 import BrandModuleService from "../modules/brand/service";
 import { BRAND_MODULE } from "../modules/brand";
+import { emitEventStep } from "@medusajs/medusa/core-flows";
+import { Brand } from "../../.medusa/types/query-entry-points";
 
 type CreateBrand = {
     name: string
@@ -96,6 +98,19 @@ export const updateBrandsStep = createStep(
     }
 )
 
+const emitBrandCreatedEventsStep = createStep(
+    "emit-brand-created-events",
+    async (brands: UpdateBrand[]) => {
+      for (const brand of brands) {
+        emitEventStep({
+          eventName: "brand.created",
+          data: { id: brand.id },
+        })
+      }
+    }
+  )
+  
+
 export const syncBrandsFromCmsWorkflow = createWorkflow(
     "sync-brands-from-system",
     () => {
@@ -110,6 +125,7 @@ export const syncBrandsFromCmsWorkflow = createWorkflow(
                 const toUpdate: UpdateBrand[] = []
 
                 data.brands.forEach((brand) => {
+                    
                     if (brand.external_id) {
                         toUpdate.push({
                             id: brand.external_id as string,
@@ -127,6 +143,8 @@ export const syncBrandsFromCmsWorkflow = createWorkflow(
 
         const created = createBrandsStep({ brands: toCreate })
         const updated = updateBrandsStep({ brands: toUpdate })
+
+        emitBrandCreatedEventsStep(created)
 
         return new WorkflowResponse({
             created,
